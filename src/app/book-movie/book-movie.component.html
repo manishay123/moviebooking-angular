@@ -1,0 +1,54 @@
+<div class="container mt-5">
+  <h2>Book Movie Ticket</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3 mt-5">
+      <h4>
+        <label for="movieName" class="form-label">Movie Name</label>
+        <label for="movieName" class="form-label">
+          : {{ movie.movieName }}</label
+        >
+      </h4>
+    </div>
+
+    <div class="mb-3">
+      <h4>
+        <label for="theatreName" class="form-label">Theatre Name</label>
+        :
+        <label for="theatreName" class="form-label">{{
+          movie.theatreName
+        }}</label>
+      </h4>
+    </div>
+
+    <div class="mb-3">
+      <h4>
+        <label for="theatreName" class="form-label">Seat Available</label>
+        :
+        <label for="theatreName" class="form-label">{{
+          movie.seatAvailable
+        }}</label>
+      </h4>
+    </div>
+
+    <div class="mb-3 col-md-3">
+      <label for="noOfSeats" class="form-label">Seat Available quantity</label>
+      <input
+        type="number"
+        class="form-control"
+        id="noOfSeats"
+        placeholder="Enter Seat Quantity"
+        formControlName="noOfSeats"
+      />
+    </div>
+    <div
+      *ngIf="
+        form.controls['noOfSeats'].invalid && form.controls['noOfSeats'].touched
+      "
+    >
+      <div class="alert alert-danger">No of seat is required</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Buy Ticket</button>
+  </form>
+</div>

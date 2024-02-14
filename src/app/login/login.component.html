@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <h2>User Login</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3 mt-3">
+      <label for="email" class="form-label">Username:</label>
+      <input
+        type="name"
+        class="form-control"
+        id="username"
+        placeholder="Enter Username"
+        formControlName="username"
+      />
+    </div>
+    <div
+      *ngIf="
+        form.controls['username'].invalid && form.controls['username'].touched
+      "
+    >
+      <div class="alert alert-danger">Username is required</div>
+    </div>
+    <div class="mb-3">
+      <label for="pwd" class="form-label">Password:</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Enter password"
+        formControlName="password"
+      />
+    </div>
+    <div
+      *ngIf="
+        form.controls['password'].invalid && form.controls['password'].touched
+      "
+    >
+      <div class="alert alert-danger">password is required</div>
+    </div>
+
+    <div *ngIf="isError">
+      <div class="alert alert-danger">{{ errorMessage }}</div>
+    </div>
+
+    <div class="my-4">
+      <a routerLink="/forgetPassword">Forget Password ?</a>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

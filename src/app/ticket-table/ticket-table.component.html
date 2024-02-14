@@ -1,0 +1,33 @@
+<div class="container my-5">
+  <h2 class="text-center">Ticket Table</h2>
+</div>
+
+<div class="container mt-3">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Transaction Id</th>
+        <th>Movie Name</th>
+        <th>Total Seat</th>
+        <th>Available Seat</th>
+        <th>Booked Seat</th>
+        <!-- <th *ngIf="roleName === 'Admin'">Action</th> -->
+      </tr>
+    </thead>
+    <tbody *ngIf="tableslists.length !== 0">
+      <tr *ngFor="let data of tableslists">
+        <td>{{ data.transactionId }}</td>
+        <td>{{ data.movieName }}</td>
+        <td>{{ data.totalseats }}</td>
+        <td>{{ data.availableSeats }}</td>
+        <td>{{ data.bookedSeats }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    class="mt-3 container d-flex justify-content-center"
+    *ngIf="tableslists.length === 0"
+  >
+    <h5 class="text-center">No Booked Movie found.</h5>
+  </div>
+</div>

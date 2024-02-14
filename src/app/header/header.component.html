@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">MovieBookingApp</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li *ngIf="!isLoggedin" class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/login"
+            >Login</a
+          >
+        </li>
+        <li *ngIf="!isLoggedin" class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/register"
+            >Signup</a
+          >
+        </li>
+
+        <li *ngIf="isLoggedin && roleName === 'Admin'" class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/addMovie"
+            >Add Movie</a
+          >
+        </li>
+        <!-- <li *ngIf="isLoggedin && roleName === 'Admin'" class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/updateMovie"
+            >Update Movie</a
+          >
+        </li> -->
+
+        <li *ngIf="isLoggedin && roleName === 'Admin'" class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/ticketTable"
+            >Booked Movie</a
+          >
+        </li>
+      </ul>
+      <!-- <form class="d-flex" role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> -->
+
+      <label class="text fw-bold" *ngIf="isLoggedin"> Welcome {{ name }}</label>
+
+      <button *ngIf="isLoggedin" class="btn btn-danger m-2" (click)="logout()">
+        Logout
+      </button>
+    </div>
+  </div>
+</nav>
